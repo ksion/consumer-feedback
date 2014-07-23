@@ -1,0 +1,18 @@
+!!!
+/[if lt IE 7 ] <html class="ie6" lang="en">
+/[if IE 7 ] <html class="ie7" lang="en">
+/[if IE 8 ] <html class="ie8" lang="en">
+/ [if (gte IE 9)|!(IE)]><!
+%html{lang: 'en-us'}
+  / <![endif]
+  %head
+    = render 'layouts/meta_tags'
+    %title= content_for?(:title) ? yield(:title) : 'Consumer Feedback'
+    = stylesheet_link_tag "application"
+    = yield :head
+  %body
+    = render 'layouts/header'
+    .main-body{ class: yield(:body_class) }
+      = yield
+    = javascript_include_tag 'application'
+    = javascript_include_tag "vendor/modernizr"
